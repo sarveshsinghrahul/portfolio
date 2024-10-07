@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTFOLIO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div id="blur-overlay"> </div>
+    
+    <header>
+        <span id="icon"><i class="fa-regular fa-user fa-4x"></i></span>
+        <div id="home">
+        <p class="row">Home</p>
+        <p class="row">About</p>
+        <p class="row">Lab</p>
+        </div>
+    </header>
+        
+    <div id="box1"></div>
+    <img id="profile" src="sticker1.png">
+    <div id="namebox">Hi! This is <span id="name">Sarvesh Singh</span></div>
+    <div id="catchyphrase">
+         "Turning ideas into functional, beautiful web experiences — that’s my superpower."
+    </div> 
+
+    <div id="blur-overlay2"> </div>
+    <div id="gib">
+        <div id="content">
+        <p id="intro">Hello, I'm Sarvesh Singh!</p>
+        <p id="rest">I’m currently pursuing my Bachelor of Technology (BTech) in Computer Science and Information Technology (CSIT) from Ajay Kumar Garg Engineering College (AKGEC). My passion lies in exploring the intersection of technology and creativity, with a focus on web development, data science, and software engineering. I thrive on solving problems and continuously expanding my knowledge in data structures, algorithms, and computer architecture.
+        
+        Welcome to my portfolio, where you can explore my projects, skills, and experiences!</p>
+        </div>
+
+
+        <h2 id="gallery-heading">Gallery</h2>
+        <div id="gallery">
+            <div id="gallery-content">
+            <p class="subgallery"><a onclick="showImages('images1');">Sketches</a></p>
+            <p class="subgallery"><a onclick="showImages('images2');">Photography</a></p>
+            </div>
+            <div id="images1" class="image-container">
+                <div id="img-track">
+                    <img class="image" src="kaneki-min.jpg">
+                    <img class="image" src="levi-min.jpg">
+                    <img class="image" src="voilet-min.jpg">
+                    <img class="image" src="naruto-min.jpg">
+                    <img class="image" src="nobara-min.jpg">
+                    <img class="image" src="kakashi-min.jpg">
+                    <img class="image" src="killua-min.jpg">
+                    <img class="image" src="eren-min.jpg">
+                    <!--repeating for seamless transition-->
+                    <img class="image" src="kaneki-min.jpg">
+                    <img class="image" src="levi-min.jpg">
+                    <img class="image" src="voilet-min.jpg">
+                    <img class="image" src="naruto-min.jpg">
+                    <img class="image" src="nobara-min.jpg">
+                    <img class="image" src="kakashi-min.jpg">
+                    <img class="image" src="killua-min.jpg">
+                    <img class="image" src="eren-min.jpg">
+                </div>
+            </div>
+            <div id="images2" class="image-container">
+                <div id="img-track">
+                    <img class="image" src="1.jpg">
+                    <img class="image" src="2.jpg">
+                    <img class="image" src="3.jpg">
+                    <img class="image" src="4.jpg">
+                    <img class="image" src="5.jpg">
+                    <img class="image" src="6.jpg">
+                    <img class="image" src="7.jpg">
+                    <img class="image" src="8.jpg">
+                    <!--repeating for seamless transition-->
+                    <img class="image" src="1.jpg">
+                    <img class="image" src="2.jpg">
+                    <img class="image" src="3.jpg">
+                    <img class="image" src="4.jpg">
+                    <img class="image" src="5.jpg">
+                    <img class="image" src="6.jpg">
+                    <img class="image" src="7.jpg">
+                    <img class="image" src="8.jpg">
+                </div>
+            </div>
+            </div>
+            <script>
+                function showImages(containerId) {
+                    // Hide all image containers
+                    const containers = document.querySelectorAll('.image-container');
+                    containers.forEach(container => container.style.display = 'none');
+        
+                    // Show the selected image container
+                    document.getElementById(containerId).style.display = 'block';
+                }
+            </script>
+
+        </div>
+    </div>
+
+
+    <footer>
+
+
+    </footer>
+
+</body>
+
+</html>

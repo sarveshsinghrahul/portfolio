@@ -1,0 +1,286 @@
+@font-face{
+    font-family:"finals";
+    src:url("Saira/Saira_Condensed-Bold.ttf");
+    src:url("Saira/Saira_Condensed-Medium.ttf");
+    src:url("Saira/Saira_ExtraCondensed-BlackItalic.ttf");
+    src:url("Saira/Saira_ExtraCondensed-BoldItalic.ttf");
+    src:url("Saira/Saira_ExtraCondensed-BoldItalic.ttf");
+    src:url("Saira/Saira_ExtraCondensed-ExtraBoldItalic.ttf");
+    src:url("Saira/Saira_ExtraCondensed-Italic.ttf");
+    src:url("Saira/Saira_ExtraCondensed-Regular.ttf");
+    src:url("Saira/Saira_ExtraCondensed-SemiBoldItalic.ttf");
+}
+*{
+    font-family: finals,Saira_ExtraCondensed-BoldItalic;
+}
+
+body{
+    background-color:#11071F;
+    display:inline;
+    background-image: url(background.jpg);
+    height:100%;
+    background-attachment:fixed;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index:0;
+
+}
+#blur-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100em;
+    backdrop-filter: blur(10px); /* Adjust blur amount here */
+    z-index: 2; /* Make sure this is above other content */
+    overflow:hidden;
+
+  }
+
+header{
+    background-color: #1A0B2E;
+    height:60px;
+    display:flex;
+    justify-content:space-between;
+    padding:0px 100px 0px 70px;
+    z-index:3;
+    border-radius:50px;
+    position:absolute;
+    top:20px;
+    width: 88vw;
+    left:8px;
+}
+.row{
+    color:#F4F3F5;
+    font-family:finals,Saira_Condensed-Bold;
+    font-size: 22px;
+    font-weight:bolder;
+    display:flex;
+    align-items:center;
+    background-color: #311557;
+    border-radius:30%;
+    width: 60px;
+    display:flexbox;
+    justify-content: center;
+}
+
+.row:hover{
+    transform:scale(1.2);
+    transition: duration 0.89s;
+    transition-timing-function:ease-in;
+    transition-delay:0.4s;
+}
+#home{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    width:500px;
+    z-index:4;
+}
+#box1{
+    height: 200px;
+    width:200px;
+    border:50px;
+    display:flex;
+    position:absolute;
+    right:100px;
+    top:200px;
+    background-size: contain;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(270deg, #0fffc1, #7e0fff);
+    filter:blur(100px);
+    transform:scale(.9);
+    background-size:200% 200%; 
+    animation: animateGlow 3s ease-in infinite;
+    z-index:2;
+}
+@keyframes animateGlow{
+    0%{ background-position:0% 50%}  
+    50%{background-position:100% 50%} 
+    100%{background-position:0% 50%}
+}
+      
+#profile{
+    z-index:3;
+    position: absolute;
+    right:80px;
+    top:120px;
+}
+#namebox{
+    font-size:22px;
+    color:#F4F3F5;
+    font-family: finals,Saira_ExtraCondensed-BoldItalic;
+    position:absolute;
+    right:100px;
+    top:380px;
+    width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    z-index:3;
+    
+}
+#profile:hover + #namebox{  
+    animation: typewriter 2s steps(13) infinite alternate, blink 800ms steps(13) infinite normal;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 5px solid #F4F3F5;
+    font-weight:bolder;
+}
+@keyframes typewriter {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 200px;
+    }
+}
+@keyframes blink {
+    from {
+        border-color: black;
+    }
+
+    to {
+        border-color: transparent;
+    }
+}
+
+#catchyphrase{
+
+    color:#F4F3F5;
+    font-family:finals,Saira_Condensed-Bold;
+    font-size:36px;
+    height: 150px;
+    width: 500px;
+    position:absolute;
+    top:150px;
+    left:130px;
+    border-color:blue;
+    border-width:5px;
+    border-style:double;
+    border-radius:50%;
+    padding:60px;
+    z-index: 3;
+}
+span{
+    color:black;
+}
+
+#blur-overlay2{
+    position:relative;
+    z-index:1;
+    background-color: #1e2e48;
+    opacity:0.9;
+    top:650px;
+    height: 2000px;
+    width:100vw;
+}
+#gib{
+    height: 2000px;
+    width:100vw;
+    position:absolute;
+    top:650px;
+    
+    display:flex;
+    justify-content: center;
+    z-index:2;
+}
+#content{
+    position:absolute;
+    top:100px;
+    color:#F4F3F5;
+    font-size:large;
+    width: 900px;
+    z-index:3;
+}
+#intro{
+    font-size:30px;
+    z-index:3;
+   
+}
+#rest{
+    font-size:20px;
+    z-index:3;
+}
+
+#gallery{
+    z-index:3;
+    position:relative;
+    top:350px;
+    z-index:3;
+    display:flex;
+    justify-content: center;
+}
+#gallery-heading{
+    position:absolute;
+    font-size:40px;
+    top:350px;
+    z-index:3;
+    text-align: center;
+    color:#000000;
+}
+#gallery-content{
+    color:white;
+    position:absolute;
+    top:100px;
+    display:inline-flex;
+    text-align:center;
+}
+a{
+    display:block;
+    width:100px;
+    font-size:20px;
+    color:black;
+}
+a:hover{
+    color:lightblue;
+}
+.image-container {
+    display: none;
+    grid-auto-flow: column; 
+    grid-auto-columns: 25%;
+    gap: var(--size-4);/* Initially hide all image containers */
+    overflow-x: hidden; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent line breaks */
+    margin-top: 200px;
+    scroll-behavior: smooth;
+    cursor:grab;
+    user-select: none;
+    width:900px;
+    overscroll-behavior-inline: contain;
+    height: 450px;
+    align-items: center;
+    padding:50px;
+    
+}
+#img-track{
+    display:flex;
+    animation: scroll 20s linear infinite; /* Auto-scrolling effect */
+    transition: transform 0.5s ease; 
+
+}
+.image-container:hover #img-track {
+    animation-play-state: paused; /* Pause the scrolling when hovering over the container */
+}
+@keyframes scroll {
+    0% {
+        transform: translateX(0); /* Start at the beginning of the track */
+    }
+    100% {
+        transform: translateX(calc(-200px * 8)); /* Move left by the width of half the images */
+    }
+}
+
+.image {
+    width: 200px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin: 10px 20px; /* Space between images */
+    transition: transform 0.5s ease, margin 0.5s ease; /* Smooth transitions */
+    object-fit: cover;
+}
+.image:hover {
+    transform: scale(1.5); /* Scale up when hovered */
+    z-index: 5; /* Bring to front when hovered */
+}
