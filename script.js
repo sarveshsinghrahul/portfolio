@@ -3,12 +3,11 @@ window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     const scrollPosition = window.scrollY;
 
-    navbar.classList.toggle('scrolled', scrollPosition > 50);
-
+    // Apply the 'scrolled' class when user scrolls down beyond 50px
     if (scrollPosition > 50) {
-        navbar.style.transform = 'translateY(0)'; // Show navbar
+        navbar.classList.add('scrolled');
     } else {
-        navbar.style.transform = 'translateY(-100%)'; // Hide navbar
+        navbar.classList.remove('scrolled');
     }
 });
 
@@ -48,13 +47,39 @@ function checkSectionsInView() {
 // Event listener to check the position of the sections on scroll
 window.addEventListener('scroll', checkSectionsInView);
 
-// Triggering fade-in animation on initial load
+// Loader and background display
 window.onload = () => {
-    const content = document.querySelector('.content');
-    content.style.opacity = 1;
-    content.style.transform = 'translateY(0)';
-    checkSectionsInView(); // Check for sections in view on load
+    const loader = document.getElementById('loader');
+    const backgroundContainer = document.querySelector('.svg-background');
+
+    // Hide loader after a delay
+    setTimeout(() => {
+        loader.style.display = 'none'; // Hide loader
+        backgroundContainer.style.display = 'block'; // Show animated background
+        fadeInContent(); // Fade in the content after loader
+    }, 3000); // Adjust the duration as needed
 };
+
+// Fade-in effect for content
+function fadeInContent() {
+    const content = document.querySelectorAll('.navbar, .landing-page, .about-section, .skills-section, .projects-section, .contact-section');
+    const backgroundContainer = document.querySelector('.svg-background');
+
+    // Start with SVG background hidden
+    backgroundContainer.style.opacity = 0;
+
+    // Fade in content sections
+    content.forEach(section => {
+        section.style.opacity = 1; // Ensure content is visible
+        section.style.transition = 'opacity 1s ease-in-out'; // Smooth transition
+    });
+
+    // Start showing the SVG circles just before the content bounce ends
+    setTimeout(() => {
+        backgroundContainer.style.opacity = 0.1; // Make SVG circles visible
+        backgroundContainer.style.transition = 'opacity 1s ease'; // Smooth transition for background
+    }, 2000); // Show SVG background after 2 seconds
+}
 
 // Contact form submission (optional)
 document.getElementById('contact-form').addEventListener('submit', function(event) {
@@ -63,6 +88,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     this.reset(); // Reset the form fields
 });
 
+// Smooth scroll for nav links
 const navLinks = document.querySelectorAll('nav ul li a');
 
 navLinks.forEach(link => {
@@ -73,28 +99,3 @@ navLinks.forEach(link => {
         targetSection.scrollIntoView({ behavior: 'smooth' });
     });
 });
-
-window.onload = () => {
-    const content = document.querySelector('.content');
-    content.style.opacity = 1;
-    content.style.animation = 'bounceIn 1s ease forwards'; // Add animation on load
-    checkSectionsInView(); // Check for sections in view on load
-};
-
-// Loader and background display
-window.onload = () => {
-    const loader = document.getElementById('loader');
-    const backgroundContainer = document.querySelector('.svg-background');
-
-    // Hide loader after a delay
-    setTimeout(() => {
-        loader.style.display = 'none'; // Hide loader
-        backgroundContainer.style.display = 'block'; // Show animated background
-    }, 3000); // Adjust the duration as needed
-
-    // Show the content after the loader
-    const content = document.querySelectorAll('.navbar, .landing-page, .about-section, .skills-section, .projects-section, .contact-section');
-    content.forEach(section => {
-        section.style.opacity = 1; // Ensure content is visible
-    });
-};
