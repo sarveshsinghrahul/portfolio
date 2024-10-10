@@ -3,109 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PORTFOLIO</title>
+    <title>Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <div id="blur-overlay"> </div>
-    
-    <header>
-        <span id="icon"><i class="fa-regular fa-user fa-4x"></i></span>
-        <div id="home">
-        <p class="row">Home</p>
-        <p class="row">About</p>
-        <p class="row">Lab</p>
-        </div>
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="#" class="logo">MyPortfolio</a>
+        <nav>
+            <div class="hamburger" id="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <ul id="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-        
-    <div id="box1"></div>
-    <img id="profile" src="sticker1.png">
-    <div id="namebox">Hi! This is <span id="name">Sarvesh Singh</span></div>
-    <div id="catchyphrase">
-         "Turning ideas into functional, beautiful web experiences — that’s my superpower."
-    </div> 
 
-    <div id="blur-overlay2"> </div>
-    <div id="gib">
-        <div id="content">
-        <p id="intro">Hello, I'm Sarvesh Singh!</p>
-        <p id="rest">I’m currently pursuing my Bachelor of Technology (BTech) in Computer Science and Information Technology (CSIT) from Ajay Kumar Garg Engineering College (AKGEC). My passion lies in exploring the intersection of technology and creativity, with a focus on web development, data science, and software engineering. I thrive on solving problems and continuously expanding my knowledge in data structures, algorithms, and computer architecture.
-        
-        Welcome to my portfolio, where you can explore my projects, skills, and experiences!</p>
+    <!-- Parallax Landing Section -->
+    <section class="parallax landing-page">
+        <div class="content">
+            <h1 class="heading">Welcome to My Portfolio</h1>
+            <p class="subtext">Innovative Designs, Creative Solutions</p>
+            <a href="#projects" class="btn-primary">Explore My Work</a>
         </div>
-
-
-        <h2 id="gallery-heading">Gallery</h2>
-        <div id="gallery">
-            <div id="gallery-content">
-            <p class="subgallery"><a onclick="showImages('images1');">Sketches</a></p>
-            <p class="subgallery"><a onclick="showImages('images2');">Photography</a></p>
-            </div>
-            <div id="images1" class="image-container">
-                <div id="img-track">
-                    <img class="image" src="kaneki-min.jpg">
-                    <img class="image" src="levi-min.jpg">
-                    <img class="image" src="voilet-min.jpg">
-                    <img class="image" src="naruto-min.jpg">
-                    <img class="image" src="nobara-min.jpg">
-                    <img class="image" src="kakashi-min.jpg">
-                    <img class="image" src="killua-min.jpg">
-                    <img class="image" src="eren-min.jpg">
-                    <!--repeating for seamless transition-->
-                    <img class="image" src="kaneki-min.jpg">
-                    <img class="image" src="levi-min.jpg">
-                    <img class="image" src="voilet-min.jpg">
-                    <img class="image" src="naruto-min.jpg">
-                    <img class="image" src="nobara-min.jpg">
-                    <img class="image" src="kakashi-min.jpg">
-                    <img class="image" src="killua-min.jpg">
-                    <img class="image" src="eren-min.jpg">
-                </div>
-            </div>
-            <div id="images2" class="image-container">
-                <div id="img-track">
-                    <img class="image" src="1.jpg">
-                    <img class="image" src="2.jpg">
-                    <img class="image" src="3.jpg">
-                    <img class="image" src="4.jpg">
-                    <img class="image" src="5.jpg">
-                    <img class="image" src="6.jpg">
-                    <img class="image" src="7.jpg">
-                    <img class="image" src="8.jpg">
-                    <!--repeating for seamless transition-->
-                    <img class="image" src="1.jpg">
-                    <img class="image" src="2.jpg">
-                    <img class="image" src="3.jpg">
-                    <img class="image" src="4.jpg">
-                    <img class="image" src="5.jpg">
-                    <img class="image" src="6.jpg">
-                    <img class="image" src="7.jpg">
-                    <img class="image" src="8.jpg">
-                </div>
-            </div>
-            </div>
-            <script>
-                function showImages(containerId) {
-                    // Hide all image containers
-                    const containers = document.querySelectorAll('.image-container');
-                    containers.forEach(container => container.style.display = 'none');
-        
-                    // Show the selected image container
-                    document.getElementById(containerId).style.display = 'block';
-                }
-            </script>
-
+        <div class="scroll-indicator">
+            <span></span>
         </div>
-    </div>
+    </section>
 
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <h2>About Me</h2>
+        <p>I am a passionate designer and developer who loves creating visually appealing and highly functional designs.</p>
+    </section>
 
-    <footer>
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <h2>My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>HTML</h3>
+                <p>Proficient in building structured web pages with HTML5.</p>
+            </div>
+            <div class="skill-card">
+                <h3>CSS</h3>
+                <p>Experienced in styling responsive websites using CSS3.</p>
+            </div>
+            <div class="skill-card">
+                <h3>JavaScript</h3>
+                <p>Skilled in creating interactive web applications with JavaScript.</p>
+            </div>
+            <div class="skill-card">
+                <h3>React</h3>
+                <p>Knowledgeable in building dynamic user interfaces with React.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Node.js</h3>
+                <p>Experience in building server-side applications using Node.js.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Python</h3>
+                <p>Familiar with Python for data analysis and web development.</p>
+            </div>
+        </div>
+    </section>
 
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <!-- Project Cards -->
+            <div class="project-card">
+                <h3>Project 1</h3>
+                <p>Project description here.</p>
+            </div>
+            <div class="project-card">
+                <h3>Project 2</h3>
+                <p>Project description here.</p>
+            </div>
+            <!-- Add more projects -->
+        </div>
+    </section>
 
-    </footer>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out for collaborations or just a friendly hello!</p>
+        <a href="mailto:your.email@example.com" class="btn-primary">Get in Touch</a>
+    </section>
 
+    <script src="script.js"></script>
 </body>
-
 </html>
