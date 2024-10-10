@@ -80,3 +80,21 @@ window.onload = () => {
     content.style.animation = 'bounceIn 1s ease forwards'; // Add animation on load
     checkSectionsInView(); // Check for sections in view on load
 };
+
+// Loader and background display
+window.onload = () => {
+    const loader = document.getElementById('loader');
+    const backgroundContainer = document.querySelector('.svg-background');
+
+    // Hide loader after a delay
+    setTimeout(() => {
+        loader.style.display = 'none'; // Hide loader
+        backgroundContainer.style.display = 'block'; // Show animated background
+    }, 3000); // Adjust the duration as needed
+
+    // Show the content after the loader
+    const content = document.querySelectorAll('.navbar, .landing-page, .about-section, .skills-section, .projects-section, .contact-section');
+    content.forEach(section => {
+        section.style.opacity = 1; // Ensure content is visible
+    });
+};
