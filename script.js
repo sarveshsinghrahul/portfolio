@@ -105,7 +105,7 @@ window.addEventListener("load", init); // Start animation when window loads
 // Auto-scroll functionality
 const sections = document.querySelectorAll('.landing-page, .about-section, .skills-section, .projects-section, .contact-section');
 let lastScrollTop = 0; // Track the last scroll position
-const scrollThreshold = 250; // Adjust this value to set the scroll threshold for triggering
+const scrollThreshold = 200; // Adjust this value to set the scroll threshold for triggering
 const sectionLoaded = {}; // Track loaded status for each section
 let isScrolling = false; // Flag to prevent multiple scroll actions
 
