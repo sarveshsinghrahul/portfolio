@@ -81,7 +81,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 8px; /* Height of the progress bar */
+  height: 5px; /* Height of the progress bar */
   background-color: var(--background); /* Background color of the progress bar */
   z-index: 9999; /* Ensure it stays on top */
 }
@@ -109,46 +109,18 @@ body {
   z-index: 1000;
 }
 
-.logo {
-  font-size: 2rem; /* Increase font size */
-  color: var(--primary); /* Use your primary color */
-  font-weight: bold; /* Make it bold */
-  text-transform: uppercase; /* Uppercase text */
-  transition: color 0.3s ease; /* Smooth color transition */
+.logo h1 {
+    font-family: 'Pacifico', cursive; /* Use a stylish font */
+    font-size: 2.5rem; /* Adjust the size as needed */
+    color: var(--accent); /* Change the color */
+    text-shadow: 2px 2px 6px rgba(200, 97, 119, 0.5), 
+             0 0 25px rgba(200, 97, 119, 0.4), 
+             0 0 5px rgba(200, 97, 119, 0.3);
+ /* Add a shadow effect */
+    margin: 0; /* Remove default margin */
 }
 
-/* Add hover effect */
-.logo:hover {
-  color: var(--accent); /* Change color on hover */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
-}
-.logo {
-    display: flex;
-    align-items: center;
-    transition: transform 0.3s ease;
-}
 
-.logo:hover {
-    transform: scale(1.1); /* Slightly scale up on hover */
-}
-
-.logo-text {
-    font-size: 1.5rem; /* Adjust the size as needed */
-    font-weight: bold; /* Make the text bold */
-    animation: bounce 1s infinite; /* Add a bounce animation */
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-5px);
-    }
-    60% {
-        transform: translateY(-3px);
-    }
-}
 nav ul {
   list-style: none;
   display: flex;
@@ -161,6 +133,7 @@ nav ul li a {
   font-size: 1.2rem;
   transition: color 0.3s, transform 0.3s;
   position: relative; /* For hover effect */
+  
 }
 
 nav ul li a::after {
