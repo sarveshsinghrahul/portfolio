@@ -111,7 +111,16 @@ window.onscroll = function() {
 
     // Update the progress bar's width
     document.getElementById('progress-bar').style.width = scrollPercentage + '%';
+
+    // Check if the user has scrolled to the top
+    if (scrollTop === 0) {
+        resetAnimations(); // Reset animations if at the top
+    }
+
+    checkSectionsInView(); // Call the function to check visibility of sections
 };
+
+
 
 
 
@@ -154,8 +163,6 @@ function checkSectionsInView() {
     boxes.forEach(box => {
         if (isInViewport(box)) {
             box.classList.add('in-view');
-        } else {
-            box.classList.remove('in-view'); // Remove class if out of view
         }
     });
 
@@ -164,14 +171,48 @@ function checkSectionsInView() {
     cards.forEach(card => {
         if (isInViewport(card)) {
             card.classList.add('in-view');
-        } else {
-            card.classList.remove('in-view'); // Remove class if out of view
         }
     });
+    // Check for moon visibility
+    const moon = document.getElementById('moon');
+    if (isInViewport(moon)) {
+        moon.classList.add('in-view'); // Add 'in-view' class when moon is visible
+    }
 }
 
 // Event listener to check the position of the sections on scroll
 window.addEventListener('scroll', debounce(checkSectionsInView, 100));
+
+function resetAnimations() {
+    const boxes = document.querySelectorAll('.about-box');
+    boxes.forEach(box => {
+        box.classList.remove('in-view');
+        // Optionally force a reflow to restart CSS animations
+        void box.offsetWidth; // This line forces a reflow
+    });
+
+    const cards = document.querySelectorAll('.project-card');
+    cards.forEach(card => {
+        card.classList.remove('in-view');
+        void card.offsetWidth; // This line forces a reflow
+    });
+
+    const moon = document.getElementById('moon');
+    if (moon) {
+        moon.classList.remove('in-view');
+        void moon.offsetWidth; // This line forces a reflow
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 // Loader and background display
 window.onload = () => {

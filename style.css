@@ -68,12 +68,7 @@ body {
   0% { transform: translateY(0); }
   100% { transform: translateY(-20px); }
 }
-.content h1,
-.content p,
-.btn-primary {
-  animation: bounceIn 5s ease forwards;
-  opacity: 0; /* Initially hidden */
-}
+
 /* Progress Bar */
 
 #progress-container {
@@ -248,7 +243,7 @@ nav ul li a:hover::after {
 .about-section .content h2 {
     font-size: 2.5rem;
     color: var(--secondary);
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
 }
 
 .about-info {
@@ -275,7 +270,7 @@ nav ul li a:hover::after {
   position: relative; /* Position relative for child elements */
   width: 100%;
   padding:50px;
-  height: 120vh; /* Full viewport height */
+  height: 100vh; /* Full viewport height */
   background-color: var(--background); /* Background color */
   display: flex;
   justify-content: center;
@@ -283,21 +278,24 @@ nav ul li a:hover::after {
 }
 .moon-image {
   position: absolute;
-  top: 17%; /* Adjust position as needed */
-  left: 10%; /* Adjust position as needed */
-  width: 120px; /* Adjust size as needed */
+  width: 550px; /* Adjust size as needed */
   height: auto; /* Maintain aspect ratio */
-  opacity: 0.5; /* Optional: make it slightly transparent */
-  animation: float 3s ease-in-out infinite; /* Apply float animation */
+  transform: rotate(90deg);
 }
-/* Keyframes for floating effect */
-@keyframes float {
-  0%, 100% {
-      transform: translateY(0); /* Start and end at the same position */
-  }
-  50% {
-      transform: translateY(-10px); /* Move up slightly */
-  }
+
+#moon {
+  opacity: 0;
+  top: 100px;
+  left:100px;
+  display: flex;
+  position:absolute;
+  transform: rotate(90deg);
+  transition: opacity 1s, transform 3s;
+}
+
+#moon.in-view {
+  opacity: 0.4;
+  transform: rotate(0deg);
 }
 
 /* Skills Section */
