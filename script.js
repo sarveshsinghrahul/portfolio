@@ -205,6 +205,25 @@ function resetAnimations() {
 }
 
 
+// Check if a timeline item is in the viewport
+function checkTimelineInView() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach(item => {
+        if (isInViewport(item)) {
+            item.classList.add('in-view');
+        } else {
+            item.classList.remove('in-view');
+        }
+    });
+}
+
+// Event listener to check the position of the timeline items on scroll
+window.addEventListener('scroll', debounce(checkTimelineInView, 100));
+
+// Trigger the check when the DOM content is loaded
+document.addEventListener("DOMContentLoaded", () => {
+    checkTimelineInView(); // Initial check on page load
+});
 
 
 
