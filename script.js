@@ -231,6 +231,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+const svg = document.getElementById('timelineSVG');
+const movingDot = document.getElementById('movingDot');
+let currentIndex = 0; // Start from the first item
+
+
+
+function moveDot() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    if (currentIndex < timelineItems.length - 1) {
+        const start = timelineItems[currentIndex].getBoundingClientRect();
+        const end = timelineItems[currentIndex + 1].getBoundingClientRect();
+
+        // Calculate the position of the dot along the path
+        const midX = (start.left + end.left + start.width + end.width) / 4;
+        const midY = (start.bottom + end.top) / 2;
+
+        // Update the dot position
+        movingDot.style.transform = `translate(${midX}px, ${midY}px)`;
+
+        // Check if the user has scrolled past the current item
+        const scrollY = window.scrollY + window.innerHeight / 2;
+        if (scrollY > end.top) {
+            currentIndex++;
+        }
+    }
+}
+
+
+window.addEventListener('load', () => {
+    moveDot(); // Initial position of dot
+});
+
+window.addEventListener('scroll', moveDot); // Move dot on scroll
+
+
+
+
+
+
+
+
+
+
 
 
 // Loader and background display

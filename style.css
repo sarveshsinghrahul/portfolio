@@ -85,7 +85,7 @@ body {
   height: 100%;
   width: 0; /* Start with 0 width */
   background-color: var(--accent); /* Color of the progress */
-  transition: width 0.2s; /* Smooth transition */
+  transition: width 0.25s; /* Smooth transition */
 }
 
 
@@ -110,8 +110,7 @@ body {
     color: var(--accent); /* Change the color */
     text-shadow: 2px 2px 6px rgba(200, 97, 119, 0.5), 
              0 0 25px rgba(200, 97, 119, 0.4), 
-             0 0 5px rgba(200, 97, 119, 0.3);
- /* Add a shadow effect */
+             0 0 5px rgba(200, 97, 119, 0.3);/* Add a shadow effect */
     margin: 0; /* Remove default margin */
 }
 
@@ -213,7 +212,7 @@ nav ul li a:hover::after {
   font-size: 3.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  letter-spacing: 2px;
+  letter-spacing: -2px;
 }
 
 .content p {
@@ -319,7 +318,7 @@ nav ul li a:hover::after {
 .timeline-item {
   position: relative;
   width: 500px;
-  margin: 20px 0;
+  margin-top: 150px;
   opacity: 0;
   transform: translateY(50px);
   transition: all 0.6s ease-in-out;
@@ -371,6 +370,85 @@ nav ul li a:hover::after {
   opacity: 1;
   transform: translateY(0);
 }
+
+
+.timeline-section {
+    width: 1536px;
+    background-color: var(--background);
+    padding: 50px 200px 50px 200px;
+    overflow: hidden;
+    position: relative; /* Added for absolute positioning of the dot */
+}
+
+.timeline-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 0 20px;
+}
+
+.timeline-item {
+    position: relative;
+    width: 500px;
+    margin-top: 150px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease-in-out;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background-color: #c86177; /* Accent color for timeline line */
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    left: 0;
+    transform: translateX(-30%);
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    right: 0;
+    transform: translateX(30%);
+}
+
+.timeline-content {
+    background-color: var(--box2);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 1px 4px 20px var(--box2);
+    position: relative;
+    transition: all 0.6s ease-in-out;
+}
+
+.timeline-content h2 {
+    margin: 0 0 10px;
+    color: var(--accent); /* Accent color for headings */
+}
+
+.timeline-content p {
+    margin: 0;
+    color: #555;
+}
+
+/* When in-view, make the item visible */
+.timeline-item.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
+
 
 
 
@@ -456,20 +534,6 @@ nav ul li a:hover::after {
   }
 }
 
-.progress-bar-container {
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.1); /* Faint background */
-  border-radius: 10px;
-  overflow: hidden;
-  margin-top: 1rem;
-}
-
-.progress-bar {
-  height: 10px;
-  background-color: var(--accent); /* Primary color for the progress bar */
-  width: 0;
-  transition: width 0.5s ease;
-}
 
 .skill-card:hover .progress-bar {
   width: 90%; /* Simulate progress based on skill level */
