@@ -291,21 +291,24 @@ nav ul li a:hover::after {
   display: flex;
   position:absolute;
   transform: rotate(90deg);
-  transition: opacity 10s, transform 3s;
+  transition: opacity 5s, transform 4s;
 }
 
 #moon.in-view {
-  opacity: 0.9;
+  opacity: 1;
   transform: rotate(0deg);
 }
+
+
 
 
 
 .timeline-section {
   width: 1536px;
   background-color: var(--background);
-  padding: 50px 200px 50px 200px;
+
   overflow: hidden;
+  position: relative; /* Added for absolute positioning of the dot */
 }
 
 .timeline-container {
@@ -314,7 +317,7 @@ nav ul li a:hover::after {
   flex-direction: column;
   align-items: center;
   position: relative;
-  padding: 0 20px;
+  padding-bottom    :200px;
 }
 
 .timeline-item {
@@ -339,12 +342,12 @@ nav ul li a:hover::after {
 }
 
 .timeline-item:nth-child(odd) .timeline-content {
-  left: 0;
+  left: -110px;
   transform: translateX(-30%);
 }
 
 .timeline-item:nth-child(even) .timeline-content {
-  right: 0;
+  right: -110px;
   transform: translateX(30%);
 }
 
@@ -374,81 +377,6 @@ nav ul li a:hover::after {
 }
 
 
-.timeline-section {
-    width: 1536px;
-    background-color: var(--background);
-    padding: 50px 200px 50px 200px;
-    overflow: hidden;
-    position: relative; /* Added for absolute positioning of the dot */
-}
-
-.timeline-container {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    padding: 0 20px;
-}
-
-.timeline-item {
-    position: relative;
-    width: 500px;
-    margin-top: 150px;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.6s ease-in-out;
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px;
-    height: 100%;
-    background-color: #c86177; /* Accent color for timeline line */
-    transform: translateX(-50%);
-    z-index: -1;
-}
-
-.timeline-item:nth-child(odd) .timeline-content {
-    left: 0;
-    transform: translateX(-30%);
-}
-
-.timeline-item:nth-child(even) .timeline-content {
-    right: 0;
-    transform: translateX(30%);
-}
-
-.timeline-content {
-    background-color: var(--box2);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 1px 4px 20px var(--box2);
-    position: relative;
-    transition: all 0.6s ease-in-out;
-}
-
-.timeline-content h2 {
-    margin: 0 0 10px;
-    color: var(--accent); /* Accent color for headings */
-}
-
-.timeline-content p {
-    margin: 0;
-    color: #555;
-}
-
-/* When in-view, make the item visible */
-.timeline-item.in-view {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-
 
 /* Ensure sections have transparent backgrounds */
 .about-section,
@@ -457,10 +385,7 @@ nav ul li a:hover::after {
     z-index: 1;
     background-color: var(--background)
     position: relative; /* Ensure they stack correctly */
-    padding: 20px; /* Add some padding for visual spacing */
 }
-
-
 
 
 
@@ -562,6 +487,20 @@ nav ul li a:hover::after {
   font-size: 1.1em;
   text-align: center;
 }
+
+
+
+.timeline-item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.timeline-item.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 
 

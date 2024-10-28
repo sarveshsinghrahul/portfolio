@@ -150,7 +150,7 @@
 
     // Function to add 'in-view' class when sections or boxes enter the viewport
     function checkSectionsInView() {
-        const sections = document.querySelectorAll('.about-section, .contact-section');
+        const sections = document.querySelectorAll('.about-section, .contact-section, timeline-section');
         sections.forEach(section => {
             if (isInViewport(section)) {
                 section.classList.add('in-view');
@@ -182,12 +182,6 @@
             box.classList.remove('in-view');
             // Optionally force a reflow to restart CSS animations
             void box.offsetWidth; // This line forces a reflow
-        });
-
-        const cards = document.querySelectorAll('.project-card');
-        cards.forEach(card => {
-            card.classList.remove('in-view');
-            void card.offsetWidth; // This line forces a reflow
         });
 
         const moon = document.getElementById('moon');
@@ -224,46 +218,19 @@
 
 
 
-    const svg = document.getElementById('timelineSVG');
-    const movingDot = document.getElementById('movingDot');
-    let currentIndex = 0; // Start from the first item
 
 
 
-    function moveDot() {
+    function parallaxEffect() {
         const timelineItems = document.querySelectorAll('.timeline-item');
-        if (currentIndex < timelineItems.length - 1) {
-            const start = timelineItems[currentIndex].getBoundingClientRect();
-            const end = timelineItems[currentIndex + 1].getBoundingClientRect();
-
-            // Calculate the position of the dot along the path
-            const midX = (start.left + end.left + start.width + end.width) / 4;
-            const midY = (start.bottom + end.top) / 2;
-
-            // Update the dot position
-            movingDot.style.transform = `translate(${midX}px, ${midY}px)`;
-
-            // Check if the user has scrolled past the current item
-            const scrollY = window.scrollY + window.innerHeight / 2;
-            if (scrollY > end.top) {
-                currentIndex++;
-            }
-        }
+        timelineItems.forEach((item, index) => {
+            const speed = index % 2 === 0 ? 1 : -1; // Alternate directions
+            item.style.transform = `translateY(${window.scrollY * speed * 0.05}px)`;
+        });
     }
-
-
-    window.addEventListener('load', () => {
-        moveDot(); // Initial position of dot
-    });
-
-    window.addEventListener('scroll', moveDot); // Move dot on scroll
-
-
-
-
-
-
-
+    
+    window.addEventListener('scroll', debounce(parallaxEffect, 10));
+    
 
 
 
@@ -319,10 +286,10 @@
         if (letterIndex > 0) {
             typedText.textContent = typedText.textContent.substring(0, letterIndex - 1);
             letterIndex--;
-            setTimeout(erase, 50); // Adjust erasing speed here
+            setTimeout(erase, 100); // Adjust erasing speed here
         } else {
             phraseIndex = (phraseIndex + 1) % phrases.length; // Move to the next phrase
-            setTimeout(type, 500); // Pause before typing the next phrase
+            setTimeout(type, 200); // Pause before typing the next phrase
         }
     }
 
